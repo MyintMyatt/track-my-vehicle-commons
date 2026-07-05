@@ -3,9 +3,11 @@ package dev.orion.client.notification.grpc;
 import dev.orion.grpc.notification.NotificationCommonResponse;
 import dev.orion.grpc.notification.OtpNotificationRequest;
 
+import java.util.concurrent.CompletableFuture;
+
 
 public interface NotificationClient {
 
-   NotificationCommonResponse sendOtp(OtpNotificationRequest request);
+   CompletableFuture<NotificationCommonResponse> sendOtp(OtpNotificationRequest request);
 
 }

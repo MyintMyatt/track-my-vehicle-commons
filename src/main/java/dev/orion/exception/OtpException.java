@@ -1,9 +1,12 @@
 package dev.orion.exception;
 
-import org.jspecify.annotations.Nullable;
+public class OtpException extends SecurityException implements BaseException{
 
-public class OtpException extends SecurityException{
-    public OtpException(@Nullable String msg) {
-        super(msg);
+    public OtpException(ExceptionMessageHolder messageHolder) {
+        super(messageHolder);
+    }
+    @Override
+    public ExceptionMessageHolder getMessageHolder() {
+        return super.getMessageHolder();
     }
 }

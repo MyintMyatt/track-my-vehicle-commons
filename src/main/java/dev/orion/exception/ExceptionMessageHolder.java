@@ -31,6 +31,10 @@ public class ExceptionMessageHolder{
             this.params = params;
         }
 
+        public Message(String code){
+            this.code = code;
+        }
+
     }
 }
 

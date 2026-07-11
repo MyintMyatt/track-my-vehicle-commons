@@ -1,12 +1,16 @@
 package dev.orion.time;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public final class DateTimeUtils {
 
     private DateTimeUtils(){}
+    private static final DateTimeFormatter yyyyMMddFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final DateTimeFormatter yyyyMMddHHmmssFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public static LocalDateTime add(LocalDateTime dateTime, TimeSetting setting){
         if (null == dateTime || null == setting){
@@ -32,5 +36,19 @@ public final class DateTimeUtils {
         if(null == date)
             throw new IllegalArgumentException("Date cannot be null");
         return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
+    }
+
+    public static String yyyyMMdd(LocalDate date){
+        if (null == date){
+            throw new IllegalArgumentException("Date cannot be null");
+        }
+        return date.format(yyyyMMddFormatter);
+    }
+
+    public static String yyyyMMddHHmmss(LocalDateTime date){
+        if (null == date){
+            throw new IllegalArgumentException("Date cannot be null");
+        }
+        return date.format(yyyyMMddHHmmssFormatter);
     }
 }

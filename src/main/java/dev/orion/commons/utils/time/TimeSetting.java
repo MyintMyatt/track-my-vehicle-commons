@@ -1,4 +1,4 @@
-package dev.orion.time;
+package dev.orion.commons.utils.time;
 
 import java.time.temporal.ChronoUnit;
 

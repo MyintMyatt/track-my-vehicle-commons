@@ -1,4 +1,4 @@
-package dev.orion.exception;
+package dev.orion.commons.exception;
 
 import lombok.Getter;
 import org.springframework.context.support.DefaultMessageSourceResolvable;

@@ -1,6 +1,6 @@
-package dev.orion.common.model;
+package dev.orion.commons.model;
 
-import dev.orion.common.constant.ErrorType;
+import dev.orion.commons.constant.ErrorType;
 
 import java.util.List;
 

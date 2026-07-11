@@ -1,4 +1,4 @@
-package dev.orion.common.utils;
+package dev.orion.commons.utils;
 
 public interface EnumResponse {
     String getName();

@@ -1,7 +1,7 @@
-package dev.orion.exception.auth;
+package dev.orion.commons.exception.auth;
 
-import dev.orion.exception.BaseException;
-import dev.orion.exception.ExceptionMessageHolder;
+import dev.orion.commons.exception.BaseException;
+import dev.orion.commons.exception.ExceptionMessageHolder;
 
 public class OtpException extends SecurityException implements BaseException {
 

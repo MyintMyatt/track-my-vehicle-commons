@@ -1,6 +1,6 @@
-package dev.orion.exception;
+package dev.orion.commons.exception;
 
-import dev.orion.common.constant.ErrorType;
+import dev.orion.commons.constant.ErrorType;
 import lombok.Getter;
 
 @Getter

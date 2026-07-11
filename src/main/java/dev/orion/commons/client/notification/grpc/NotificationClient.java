@@ -1,4 +1,4 @@
-package dev.orion.client.notification.grpc;
+package dev.orion.commons.client.notification.grpc;
 
 import dev.orion.grpc.notification.NotificationCommonResponse;
 import dev.orion.grpc.notification.OtpNotificationRequest;

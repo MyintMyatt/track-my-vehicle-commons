@@ -1,4 +1,4 @@
-package dev.orion.common.constant;
+package dev.orion.commons.constant;
 
 public enum ErrorType {
     Validation,

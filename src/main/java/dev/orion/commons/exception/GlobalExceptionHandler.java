@@ -1,15 +1,16 @@
-package dev.orion.exception;
+package dev.orion.commons.exception;
 
-import dev.orion.common.constant.ErrorType;
-import dev.orion.common.model.ApiResponse;
-import dev.orion.common.model.ErrorResponse;
-import dev.orion.exception.auth.OtpException;
-import dev.orion.exception.auth.SecurityException;
+import dev.orion.commons.constant.ErrorType;
+import dev.orion.commons.model.ApiResponse;
+import dev.orion.commons.model.ErrorResponse;
+import dev.orion.commons.exception.auth.OtpException;
+import dev.orion.commons.exception.auth.SecurityException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -47,6 +48,13 @@ public class GlobalExceptionHandler {
     public ApiResponse<ErrorResponse> handle(SecurityException ex){
         log.error("SecurityException", ex);
         return ApiResponse.error(new ErrorResponse(ErrorType.Security, getMessage(ex)));
+    }
+
+    @ExceptionHandler
+    @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
+    public ApiResponse<ErrorResponse> handle(AccessDeniedException ex){
+        log.error("SecurityException", ex);
+        return ApiResponse.error(new ErrorResponse(ErrorType.Security, "You have no permission for this operation."));
     }
 
     private List<String> getMessage(BaseException ex){

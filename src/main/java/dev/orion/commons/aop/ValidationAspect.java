@@ -1,6 +1,6 @@
-package dev.orion.aop;
+package dev.orion.commons.aop;
 
-import dev.orion.exception.ValidationException;
+import dev.orion.commons.exception.ValidationException;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;

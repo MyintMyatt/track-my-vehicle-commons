@@ -1,4 +1,4 @@
-package dev.orion.common.model;
+package dev.orion.commons.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

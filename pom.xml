@@ -105,6 +105,12 @@
       <version>${grpc.version}</version>
     </dependency>
 
+    <!--dev.orion-->
+    <dependency>
+      <groupId>dev.orion</groupId>
+      <artifactId>track-my-vehicle-core-domain</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
   <build>

@@ -1,7 +1,6 @@
 package dev.orion.commons.annotations;
 
 import dev.orion.grpc.auth.client.Action;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

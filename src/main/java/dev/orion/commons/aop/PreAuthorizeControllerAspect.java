@@ -1,9 +1,9 @@
 package dev.orion.commons.aop;
 
 import dev.orion.commons.annotations.PreAuthorizeController;
+import dev.orion.commons.client.auth.AuthClient;
 import dev.orion.commons.exception.auth.SecurityException;
 import dev.orion.grpc.auth.client.PermissionCheckRequest;
-import dev.orion.track_my_vehicle_auth_client.AuthClient;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

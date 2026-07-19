@@ -11,6 +11,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.web.bind.MissingRequestValueException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -27,7 +28,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler
     @ResponseStatus(code = HttpStatus.BAD_REQUEST)
     public ApiResponse<ErrorResponse> handle(BusinessException ex){
-        log.error("BusinessException", ex);
         return ApiResponse.error(
                 new ErrorResponse(
                         ex.getErrorType() != null ? ex.getErrorType() : ErrorType.Business,
@@ -56,6 +56,15 @@ public class GlobalExceptionHandler {
         log.error("SecurityException", ex);
         return ApiResponse.error(new ErrorResponse(ErrorType.Security, "You have no permission for this operation."));
     }
+
+    @ExceptionHandler
+    @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
+    public ApiResponse<ErrorResponse> handle(MissingRequestValueException ex){
+        log.error("MissingRequestValueException", ex);
+        return ApiResponse.error(new ErrorResponse(ErrorType.Security, "Missing Request Some Value"));
+    }
+
+
 
     private List<String> getMessage(BaseException ex){
         return ex.getMessageHolder().getMessages().stream().map(m -> {

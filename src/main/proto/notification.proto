@@ -15,6 +15,6 @@ message NotificationCommonResponse{
   string message = 3;
 }
 
-service OtpGrpcService{
+service OtpService{
   rpc sendOtp(OtpNotificationRequest) returns (NotificationCommonResponse);
 }

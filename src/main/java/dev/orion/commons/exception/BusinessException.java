@@ -5,12 +5,16 @@ import lombok.Getter;
 
 @Getter
 public class BusinessException extends RuntimeException implements BaseException {
-    private final ErrorType errorType;
-    private final ExceptionMessageHolder messageHolder;
+    private ErrorType errorType;
+    private ExceptionMessageHolder messageHolder;
 
     public BusinessException(ExceptionMessageHolder messageHolder) {
         this.messageHolder = messageHolder;
         this.errorType = null;
+    }
+
+    public BusinessException(String message){
+        super(message);
     }
 
     public BusinessException(ErrorType errorType,

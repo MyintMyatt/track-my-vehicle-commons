@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "dev.orion.grpc.employee";
+option java_outer_classname = "EmployeeRegisterProto";
+
+message RegisterRequest{
+  string username = 1;
+  string email = 2;
+  string phone = 3;
+  string password = 4;
+  string fullName = 5;
+}
+
+message RegisterResponse{
+  bool success = 1;
+  string message = 2;
+}
+
+service EmployeeRegisterService {
+  rpc register(RegisterRequest) returns (RegisterResponse);
+}

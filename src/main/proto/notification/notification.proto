@@ -4,6 +4,8 @@ option java_multiple_files= true;
 option java_package = "dev.orion.grpc.notification";
 option java_outer_classname = "CommonNotificationClass";
 
+import 'notification/notification_profiles_register.proto';
+
 message OtpNotificationRequest{
   string email = 1;
   string otp = 2;
@@ -15,6 +17,7 @@ message NotificationCommonResponse{
   string message = 3;
 }
 
-service OtpService{
-  rpc sendOtp(OtpNotificationRequest) returns (NotificationCommonResponse);
+service NotificationService{
+  rpc sendOtpMail(OtpNotificationRequest) returns (NotificationCommonResponse);
+  rpc notificationProfileRegister (NotificationProfileRegisterRequest) returns (NotificationProfileRegisterResponse);
 }
